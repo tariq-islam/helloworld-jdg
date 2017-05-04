@@ -1,0 +1,6 @@
+org/jboss/as/quickstarts/datagrid/helloworld/GetController.class
+org/jboss/as/quickstarts/datagrid/helloworld/Resources.class
+org/jboss/as/quickstarts/datagrid/helloworld/PutController.class
+org/jboss/as/quickstarts/datagrid/helloworld/MyCacheManagerProvider.class
+org/jboss/as/quickstarts/datagrid/helloworld/TestServletGet.class
+org/jboss/as/quickstarts/datagrid/helloworld/TestServletPut.class
