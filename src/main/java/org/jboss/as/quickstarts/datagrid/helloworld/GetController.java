@@ -54,7 +54,7 @@ public class GetController {
         Cache<String, String> c = m.getCache();
         try {
         message = c.get(key);
-        log.info("get: " + key + " " + message + " from pod: " + InetAddress.getLocalHost();
+        log.info("get: " + key + " " + message + " from pod: " + InetAddress.getLocalHost());
         } catch (UnknownHostException e) {
             System.out.println(e.getMessage());
         }
@@ -74,7 +74,11 @@ public class GetController {
         } // for
 
         if (allKeyValues == null || allKeyValues.length() == 0) {
-            message = "Nothing in the Cache";
+            try {
+            message = "Nothing in the Cache from pod: " + InetAddress.getLocalHost();
+        } catch (UnknownHostException e) {
+            System.out.println(e.getMessage());
+        }
         } else {
             // remote trailing comma
             allKeyValues.delete(allKeyValues.length() - 2, allKeyValues.length());
