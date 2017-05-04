@@ -22,6 +22,9 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import org.infinispan.manager.DefaultCacheManager;
 import org.infinispan.Cache;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Set;
 
 /**
@@ -49,8 +52,12 @@ public class GetController {
     // Called by the get.xhtml - get button
     public void getOne() {
         Cache<String, String> c = m.getCache();
+        try {
         message = c.get(key);
-        log.info("get: " + key + " " + message);
+        log.info("get: " + key + " " + message + " from pod: " + InetAddress.getLocalHost();
+        } catch (UnknownHostException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     // Called by the get.xhtml - get all button
@@ -71,7 +78,11 @@ public class GetController {
         } else {
             // remote trailing comma
             allKeyValues.delete(allKeyValues.length() - 2, allKeyValues.length());
-            message = allKeyValues.toString();
+            try {
+            message = allKeyValues.toString() + " from pod: " + InetAddress.getLocalHost();
+        } catch (UnknownHostException e) {
+            System.out.println(e.getMessage());
+        }
         }
     }
 
